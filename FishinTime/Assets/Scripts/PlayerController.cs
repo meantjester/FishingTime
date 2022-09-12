@@ -109,8 +109,12 @@ public class PlayerController : MonoBehaviour
 
             GetComponent<SpriteRenderer>().color = UnityEngine.Color.yellow;
 
+            myRB = collision.gameObject.GetComponent<Rigidbody2D>();
+
 
             collision.gameObject.SetActive(false);
+
+            myRB = GetComponent<Rigidbody2D>();
         }
     }
 }
