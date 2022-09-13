@@ -24,7 +24,7 @@ public class enemyMovement : MonoBehaviour
         down = new Vector2(0, -movementSpeed);
         zero = new Vector2(0, 0);
 
-        playerTarget = GameObject.Find("playerSprite").transform;
+        playerTarget = GameObject.Find("Player").transform;
 
         myRB = GetComponent<Rigidbody2D>();
 

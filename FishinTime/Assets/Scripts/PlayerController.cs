@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                GameObject b = Instantiate(hook, new Vector2(transform.position.x, transform.position.y + 1), transform.rotation);
+                GameObject b = Instantiate(hook, new Vector2(transform.position.x, transform.position.y - 1), transform.rotation);
                 b.GetComponent<Rigidbody2D>().velocity = new Vector2(0, hookSpeed);
 
                 // Delete the comment slashes on the code below once you follow along with Day 13's Recording
