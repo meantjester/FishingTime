@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public bool invincible = false;
     public float invinicbleCooldownTime;
     private float timeDifference2;
+   
 
     public float speed = 10;
     public int playerHealth = 3;
@@ -83,6 +84,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name.Contains("Shark") && !invincible)

@@ -31,9 +31,22 @@ public class fishMovement : MonoBehaviour
         rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
-        CheckWhereToFace()
+        CheckWhereToFace();
+    }
+
+    void CheckWhereToFace()
+    {
+        if (dirX > 0)
+            facingRight = true;
+        else if (dirX < 0)
+            facingRight = false;
+
+        if (((facingRight) && (localScale.x < 0)) || ((!facingRight) && (localScale.x > 0)))
+            localScale.x *= -1;
+
+        transform.localScale = localScale;
     }
 
     // Update is called once per frame
