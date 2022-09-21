@@ -17,10 +17,13 @@ public class enemyMovement : MonoBehaviour
     private Vector2 down;
     private Vector2 zero;
 
+    public int Health = 1;
+
     // Start is called before the first frame update
     void Start()
     {
-        up = new Vector2(0, movementSpeed);
+
+        new Vector2(0, movementSpeed);
         down = new Vector2(0, -movementSpeed);
         zero = new Vector2(0, 0);
 
@@ -29,6 +32,8 @@ public class enemyMovement : MonoBehaviour
         myRB = GetComponent<Rigidbody2D>();
 
         detectionZone = GetComponent<CircleCollider2D>();
+
+        Health = 1;
     }
 
     // Update is called once per frame
@@ -57,12 +62,20 @@ public class enemyMovement : MonoBehaviour
             
         }
 
+        if (Health <= 0)
+        {
+            transform.SetPositionAndRotation(new Vector2(), new Quaternion());
+            Health = 3;
+        }
+
+      
+
 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.Contains("bullet"))
+        if (collision.gameObject.name.Contains("hook"))
         {
             Destroy(collision.gameObject);
 

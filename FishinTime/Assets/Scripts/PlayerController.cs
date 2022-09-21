@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public MoneyHandler wallet;
+
     public GameObject hook;
+    public GameObject projectile;
     private Rigidbody2D myRB;
     public Sprite invicibility;
 
@@ -15,10 +18,9 @@ public class PlayerController : MonoBehaviour
     public bool invincible = false;
     public float invinicbleCooldownTime;
     private float timeDifference2;
-    public GameObject projectile;
     public float firerate = 0.5f;
     private float nextFire = 0.5f;
-   
+    
 
     public float speed = 10;
     public int playerHealth = 3;
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (playerHealth <= 0)
         {
             transform.SetPositionAndRotation(new Vector2(), new Quaternion());
@@ -100,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
             playerHealth--;
 
-
+            wallet.money -= 100;
         }
 
         else if (collision.gameObject.name.Contains("Fish"))
@@ -111,6 +114,9 @@ public class PlayerController : MonoBehaviour
             // Delete the comment slashes on the code below once you follow along with Day 13's Recording
             //mySpeaker.clip = pickupSound;
             //mySpeaker.Play();
+
+            wallet.money += 100;
+            wallet.score += 1;
 
             invincible = true;
 

@@ -9,6 +9,10 @@ public class fishMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool facingRight = false;
     private Vector3 localScale;
+
+    public int Health = 1;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +20,9 @@ public class fishMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         dirX = -1f;
         moveSpeed = 3f;
+
+        Health = 1;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,6 +59,11 @@ public class fishMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Health <= 0)
+        {
+            transform.SetPositionAndRotation(new Vector2(), new Quaternion());
+            Health = 1;
+        }
         
     }
 }
