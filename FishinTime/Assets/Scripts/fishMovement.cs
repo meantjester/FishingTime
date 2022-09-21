@@ -20,7 +20,7 @@ public class fishMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Wall>())
+        if (collision.gameObject.tag == "wall")
         {
             dirX *= -1f;
         }

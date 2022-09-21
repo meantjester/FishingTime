@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     public bool invincible = false;
     public float invinicbleCooldownTime;
     private float timeDifference2;
+    public GameObject projectile;
+    public float firerate = 0.5f;
+    private float nextFire = 0.5f;
    
 
     public float speed = 10;
@@ -42,14 +45,14 @@ public class PlayerController : MonoBehaviour
         velocity.x = Input.GetAxisRaw("Horizontal") * speed;
         velocity.y = Input.GetAxisRaw("Vertical") * speed;
 
-        myRB.velocity = velocity;
+        
 
         if (canShoot)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) && Time.time > nextFire)
             {
-                GameObject b = Instantiate(hook, new Vector2(transform.position.x, transform.position.y - 1), transform.rotation);
-                b.GetComponent<Rigidbody2D>().velocity = new Vector2(0, hookSpeed);
+                nextFire = Time.time + firerate;
+                Instantiate(projectile, transform.position, transform.rotation);
 
                 // Delete the comment slashes on the code below once you follow along with Day 13's Recording
                 //mySpeaker.clip = shootSound;
@@ -83,6 +86,8 @@ public class PlayerController : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = UnityEngine.Color.white;
             }
         }
+
+        myRB.velocity = velocity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
