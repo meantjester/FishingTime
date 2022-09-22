@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.Space) && Time.time > nextFire)
             {
                 nextFire = Time.time + firerate;
-                Instantiate(projectile, transform.position, transform.rotation);
+                Instantiate(projectile, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), transform.rotation);
 
                 // Delete the comment slashes on the code below once you follow along with Day 13's Recording
                 //mySpeaker.clip = shootSound;
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
             if (timeDifference >= shootCooldownTime)
             {
                 canShoot = true;
-                timeDifference = 0;
+                timeDifference = 55;
             }
         }
 

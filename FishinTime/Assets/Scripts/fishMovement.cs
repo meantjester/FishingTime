@@ -64,6 +64,6 @@ public class fishMovement : MonoBehaviour
             transform.SetPositionAndRotation(new Vector2(), new Quaternion());
             Health = 1;
         }
-        
+
     }
 }
