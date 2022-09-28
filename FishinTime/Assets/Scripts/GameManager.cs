@@ -30,16 +30,16 @@ public class GameManager : MonoBehaviour
         //infinite loop
         while (true)
         {
-            int xRandom = Random.Range(-5, 5);
-            Vector3 randomPos = new Vector3(xRandom, -5, 0);
+            //int yRandom = Random.Range(-8, 0);
+            Vector3 randomPos = new Vector3(Random.Range(0f, 0f), Random.Range(-2.0f, -8.0f));
             //Instantiate feesh
-            Instantiate(FishPrefab, randomPos, Quaternion.identity);
+            //Instantiate(FishPrefab, randomPos, Quaternion.identity);
 
             //transfer enemy to 'EnemyContainer' gameobject.
             GameObject newEnemy = Instantiate(FishPrefab, randomPos, Quaternion.identity);
 
             //wait __ seconds 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
         }
     }
 
