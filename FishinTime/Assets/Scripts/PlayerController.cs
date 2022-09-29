@@ -128,6 +128,9 @@ public class PlayerController : MonoBehaviour
             collision.gameObject.SetActive(false);
 
             myRB = GetComponent<Rigidbody2D>();
+
+            Destroy(this.gameObject);
+            
         }
     }
 }
