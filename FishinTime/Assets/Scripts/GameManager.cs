@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
 
     public float secondsBetweenSpawn;
     public float elapsedTime = 0.0f;
-
-    private GameManager _gameManager;
     
     
 
@@ -20,16 +18,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnEnemies());
-        _gameManager = GameObject.Find("SpawnManager").GetComponent<GameManager>();
-
-        //Null check
-        if (_gameManager == null)
-        {
-            Debug.LogError("The Spawn Manager is NULL!");
-        }
-
-       
-
     }
 
     IEnumerator SpawnEnemies()

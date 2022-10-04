@@ -68,35 +68,36 @@ public class enemyMovement : MonoBehaviour
             Health = 3;
         }
 
-      
-
 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.Contains("hook"))
+        if (collision.gameObject.name.Contains("Player"))
         {
-            Destroy(collision.gameObject);
-
-            // Delete the comment slashes on the code below once you follow along with Day 15's Recording
-            //GameObject.Find("GameManager").GetComponent<GameManager>().playerKillCount++;
-
-            this.gameObject.SetActive(false);
+            playerTarget = GameObject.Find("wall").transform;
         }
+
+        if (collision.gameObject.name.Contains("Wall"))
+        {
+           
+        }
+
     }
 
     // Runs when our enemy collider is collided with OR when our enemy collides with another trigger.
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Contains("player"))
-            isFollowing = true;
+        if (collision.gameObject.name.Contains("Player"))
+        {
+            movementSpeed = 20;
+        }
     }
 
     // Runs when an object leaves our enemy's trigger volume OR when our enemy leaves another trigger volume.
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name.Contains("player"))
-            isFollowing = false;
+        if (collision.gameObject.name.Contains("Player"))
+            movementSpeed = 10;
     }
 }
