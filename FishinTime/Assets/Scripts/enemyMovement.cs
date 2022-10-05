@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime;
 
 public class enemyMovement : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class enemyMovement : MonoBehaviour
     public bool movementDirection = false; // false = down | true = up
     public bool isFollowing = false;
 
+    private System.Random rand;
+
+    public GameObject[] endPoints;
     public Transform playerTarget;
     private Rigidbody2D myRB;
     private CircleCollider2D detectionZone;
@@ -22,6 +26,7 @@ public class enemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rand = new System.Random();
 
         new Vector2(0, movementSpeed);
         down = new Vector2(0, -movementSpeed);
@@ -75,7 +80,7 @@ public class enemyMovement : MonoBehaviour
     {
         if (collision.gameObject.name.Contains("Player"))
         {
-            playerTarget = GameObject.Find("wall").transform;
+            playerTarget = endPoints[rand.Next(0, 2)].transform;
         }
 
         if (collision.gameObject.name.Contains("Wall"))
@@ -90,7 +95,7 @@ public class enemyMovement : MonoBehaviour
     {
         if (collision.gameObject.name.Contains("Player"))
         {
-            movementSpeed = 20;
+            movementSpeed = 40;
         }
     }
 
@@ -98,6 +103,6 @@ public class enemyMovement : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.name.Contains("Player"))
-            movementSpeed = 10;
+            movementSpeed = 28;
     }
 }
