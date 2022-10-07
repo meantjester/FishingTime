@@ -69,8 +69,7 @@ public class enemyMovement : MonoBehaviour
 
         if (Health <= 0)
         {
-            transform.SetPositionAndRotation(new Vector2(), new Quaternion());
-            Health = 3;
+            Destroy(gameObject);
         }
 
 
@@ -83,9 +82,11 @@ public class enemyMovement : MonoBehaviour
             playerTarget = endPoints[rand.Next(0, 2)].transform;
         }
 
-        if (collision.gameObject.name.Contains("Wall"))
+        if (collision.gameObject.name.Contains("wall"))
         {
-           
+            --Health;
+
+            Destroy(collision.gameObject);
         }
 
     }

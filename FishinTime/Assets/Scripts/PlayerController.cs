@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
             if (timeDifference >= shootCooldownTime)
             {
                 canShoot = true;
-                timeDifference = 55;
+                timeDifference = 3;
             }
         }
 
