@@ -11,26 +11,41 @@ public class GameManager : MonoBehaviour
 
     public float secondsBetweenSpawn;
     public float elapsedTime = 0.0f;
-    
+
+    public bool SharkManager;
     
 
     // Start is called before the first frame update
     void Start()
     {
-       
 
-        this.Wait(2.5f, () =>
-        {
-            StartCoroutine(SpawnFish());
-            Debug.Log("Bruh");
-        });
 
-        this.Wait(10.5f, () =>
-        {
-            StartCoroutine(SpawnSharks());
-            Debug.Log("Bruh3");
-        });
+        /* this.Wait(2.5f, () =>
+         {
+             StartCoroutine(SpawnFish());
+             Debug.Log("Bruh");
+         });
 
+         this.Wait(5.5f, () =>
+         {
+             StopCoroutine(SpawnFish());
+             Debug.Log("Bruh2");
+         });
+
+         this.Wait(10.5f, () =>
+         {
+             StartCoroutine(SpawnSharks());
+             Debug.Log("Bruh3");
+         });
+
+         this.Wait(20.5f, () =>
+         {
+             StopAllCoroutines();
+             Debug.Log("Bruh4");
+         });
+         */
+
+        
     }
 
     IEnumerator SpawnFish()
@@ -48,15 +63,11 @@ public class GameManager : MonoBehaviour
             //wait __ seconds 
             yield return new WaitForSeconds(2f);
 
-            this.Wait(5.5f, () =>
-            {
-                StartCoroutine(SpawnFish());
-                Debug.Log("Bruh2");
-            });
+           
         }
     }
 
-    IEnumerator SpawnSharks()
+   /* IEnumerator SpawnSharks()
     {
         //infinite loop
         while (true)
@@ -71,18 +82,15 @@ public class GameManager : MonoBehaviour
             //wait __ seconds 
             yield return new WaitForSeconds(5f);
 
-            this.Wait(20.5f, () =>
-            {
-                StartCoroutine(SpawnFish());
-                Debug.Log("Bruh4");
-            });
+
         }
     }
+    */
 
     // Update is called once per frame
     void Update()
     {
-       //if (Coroutine.(SpawnSharks))
+        //if (Coroutine.(SpawnSharks))
        
     }    
 }
