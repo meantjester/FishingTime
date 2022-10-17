@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
             //mySpeaker.clip = punchSound;
             //mySpeaker.Play();
 
-            playerHealth--;
+            //playerHealth--;
 
             wallet.money -= 100;
         }
@@ -129,8 +129,8 @@ public class PlayerController : MonoBehaviour
 
             myRB = GetComponent<Rigidbody2D>();
 
-            Destroy(this.gameObject);
-            
+            Destroy(gameObject);
+
         }
     }
 }

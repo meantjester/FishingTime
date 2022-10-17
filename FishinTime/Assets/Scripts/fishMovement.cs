@@ -23,6 +23,10 @@ public class fishMovement : MonoBehaviour
 
         Health = 1;
 
+        this.Wait(6.5f, () =>
+        {
+            Destroy(gameObject);
+        });
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -67,8 +71,7 @@ public class fishMovement : MonoBehaviour
     {
         if (Health <= 0)
         {
-            transform.SetPositionAndRotation(new Vector2(), new Quaternion());
-            Health = 1;
+            Destroy(gameObject);
         }
 
     }

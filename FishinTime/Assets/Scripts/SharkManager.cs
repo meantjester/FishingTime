@@ -9,11 +9,13 @@ public class SharkManager : MonoBehaviour
     public float secondsBetweenSpawn;
     public float elapsedTime = 0.0f;
 
+    public GameManager gm;
+
 
     // Start is called before the first frame update
     void Start()
     {
-     
+       
     }
 
     IEnumerator SpawnSharks()

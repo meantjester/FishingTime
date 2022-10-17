@@ -7,26 +7,31 @@ public class GameManager : MonoBehaviour
     public GameObject FishPrefab;
     public GameObject enemyContainer;
 
-    public GameObject SharkPrefab;
+    //public GameObject SharkPrefab;
 
     public float secondsBetweenSpawn;
     public float elapsedTime = 0.0f;
 
-    public bool SharkManager;
-    
+    //public WaitExtension gg;
+    public SharkManager gm;
+    public Coroutine spawnFish;
+
 
     // Start is called before the first frame update
     void Start()
     {
 
 
-        /* this.Wait(2.5f, () =>
+       this.Wait(2.5f, () =>
          {
-             StartCoroutine(SpawnFish());
+             spawnFish = StartCoroutine(SpawnFish());
              Debug.Log("Bruh");
+
+             //gm.StartCoroutine("SpawnSharks");
+
          });
 
-         this.Wait(5.5f, () =>
+       /*  this.Wait(5.5f, () =>
          {
              StopCoroutine(SpawnFish());
              Debug.Log("Bruh2");
@@ -44,8 +49,8 @@ public class GameManager : MonoBehaviour
              Debug.Log("Bruh4");
          });
          */
-
-        
+         
+         
     }
 
     IEnumerator SpawnFish()
@@ -64,7 +69,15 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(2f);
 
            
-        }
+
+            this.Wait(5.0f, () =>
+            {
+                StopCoroutine(spawnFish);
+                gm.StartCoroutine("SpawnSharks");
+            });
+
+
+    }
     }
 
    /* IEnumerator SpawnSharks()
@@ -90,7 +103,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Coroutine.(SpawnSharks))
-       
+        this.Wait(120.1f, () =>
+        {
+            //balls
+        });
     }    
 }
