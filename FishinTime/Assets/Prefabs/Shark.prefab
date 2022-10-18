@@ -164,7 +164,10 @@ MonoBehaviour:
   detectionRadius: 0.5
   movementSpeed: 5
   canMove: 1
-  movementDirection: 1
-  isFollowing: 1
+  movementDirection: 0
+  isFollowing: 0
+  endPoints:
+  - {fileID: 0}
+  - {fileID: 0}
   playerTarget: {fileID: 0}
-  Health: 1
+  Health: -2147483648

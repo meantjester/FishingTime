@@ -23,14 +23,14 @@ public class PlayerController : MonoBehaviour
     
 
     public float speed = 10;
-    public int playerHealth = 3;
+    public int playerHealth = 10000000;
 
     // Start is called before the first frame update
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
 
-        playerHealth = 3;
+        //playerHealth = 3;
     }
 
     // Update is called once per frame
@@ -39,8 +39,8 @@ public class PlayerController : MonoBehaviour
 
         if (playerHealth <= 0)
         {
-            transform.SetPositionAndRotation(new Vector2(), new Quaternion());
-            playerHealth = 3;
+            //transform.SetPositionAndRotation(new Vector2(), new Quaternion());
+            Destroy(gameObject);
         }
 
         Vector2 velocity = myRB.velocity;

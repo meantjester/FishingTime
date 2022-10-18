@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class GameManager : MonoBehaviour
 {
     public GameObject FishPrefab;
@@ -15,6 +17,8 @@ public class GameManager : MonoBehaviour
     //public WaitExtension gg;
     public SharkManager gm;
     public Coroutine spawnFish;
+
+    
 
 
     // Start is called before the first frame update
@@ -107,5 +111,10 @@ public class GameManager : MonoBehaviour
         {
             //balls
         });
-    }    
+    }
+
+    public void startGame()
+    {
+    }
+
 }

@@ -39,6 +39,12 @@ public class enemyMovement : MonoBehaviour
         detectionZone = GetComponent<CircleCollider2D>();
 
         Health = 1;
+
+        this.Wait(10.5f, () =>
+        {
+            Destroy(gameObject);
+        });
+
     }
 
     // Update is called once per frame
@@ -86,6 +92,11 @@ public class enemyMovement : MonoBehaviour
         {
             --Health;
 
+            //Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.name.Contains("Hook"))
+        {
             Destroy(collision.gameObject);
         }
 

@@ -23,7 +23,7 @@ public class fishMovement : MonoBehaviour
 
         Health = 1;
 
-        this.Wait(6.5f, () =>
+        this.Wait(13.5f, () =>
         {
             Destroy(gameObject);
         });
