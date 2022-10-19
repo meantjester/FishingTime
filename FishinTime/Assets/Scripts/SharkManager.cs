@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,18 +10,24 @@ public class SharkManager : MonoBehaviour
     public float elapsedTime = 0.0f;
 
     public GameManager gm;
+  
+    public IEnumerator spawnSharks;
 
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        spawnSharks = SpawnSharks();
+
+        StartCoroutine(spawnSharks);
     }
 
     IEnumerator SpawnSharks()
     {
+        int i = 0;
+
         //infinite loop
-        while (true)
+        while (i <= 5)
         {
 
             Vector3 randomPos = new Vector3(Random.Range(10f, 10f), Random.Range(-2.0f, -8.0f));
@@ -29,10 +35,17 @@ public class SharkManager : MonoBehaviour
 
             //transfer enemy to 'EnemyContainer' gameobject.
             GameObject newEnemy = Instantiate(SharkPrefab, randomPos, Quaternion.identity);
+            i++;
 
             //wait __ seconds 
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(7.8f);
 
+            this.Wait(10.0f, () =>
+            {
+                StopCoroutine(spawnSharks);
+                gm.StartCoroutine("SpawnFish");
+                Debug.Log("Bruh2");
+            });
 
         }
     }
@@ -43,3 +56,4 @@ public class SharkManager : MonoBehaviour
        
     }
 }
+*/

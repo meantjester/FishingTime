@@ -170,9 +170,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FishPrefab: {fileID: 1990731236}
   enemyContainer: {fileID: 419488602}
-  secondsBetweenSpawn: 2
+  secondsBetweenSpawn: 2.5
   elapsedTime: 0
-  gm: {fileID: 1161968017}
+  SharkPrefab: {fileID: 1035326380}
+  gm: {fileID: 65896076}
 --- !u!1 &180893204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,55 +1457,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.5
---- !u!1 &1161968016
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1161968018}
-  - component: {fileID: 1161968017}
-  m_Layer: 0
-  m_Name: Shark Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1161968017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161968016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b15a907d51066c49b1bfb636e218ad9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SharkPrefab: {fileID: 1035326380}
-  secondsBetweenSpawn: 3
-  elapsedTime: 0
-  gm: {fileID: 65896076}
---- !u!4 &1161968018
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161968016}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.43338543, y: -2.1104772, z: 0.023999011}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Radius: 0.9
 --- !u!1 &1175687292
 GameObject:
   m_ObjectHideFlags: 0
@@ -2048,7 +2001,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1804591183
 GameObject:
@@ -2063,7 +2016,7 @@ GameObject:
   - component: {fileID: 1804591185}
   - component: {fileID: 1804591184}
   m_Layer: 0
-  m_Name: Square
+  m_Name: prison
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2963,9 +2916,21 @@ PrefabInstance:
       value: Shark
       objectReference: {fileID: 0}
     - target: {fileID: 5252247957729798342, guid: 0aa00ad238dde5942b09744a5c92e148, type: 3}
+      propertyPath: Health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252247957729798342, guid: 0aa00ad238dde5942b09744a5c92e148, type: 3}
+      propertyPath: isFollowing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252247957729798342, guid: 0aa00ad238dde5942b09744a5c92e148, type: 3}
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 1175687294}
+    - target: {fileID: 5252247957729798342, guid: 0aa00ad238dde5942b09744a5c92e148, type: 3}
+      propertyPath: detectionRadius
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5252247957729798342, guid: 0aa00ad238dde5942b09744a5c92e148, type: 3}
       propertyPath: endPoints.Array.data[0]
       value: 
@@ -3020,7 +2985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5252247957729798361, guid: 0aa00ad238dde5942b09744a5c92e148, type: 3}
       propertyPath: m_Constraints
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

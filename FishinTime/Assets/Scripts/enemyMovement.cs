@@ -40,10 +40,7 @@ public class enemyMovement : MonoBehaviour
 
         Health = 1;
 
-        this.Wait(10.5f, () =>
-        {
-            Destroy(gameObject);
-        });
+        
 
     }
 
@@ -98,6 +95,13 @@ public class enemyMovement : MonoBehaviour
         if (collision.gameObject.name.Contains("Hook"))
         {
             Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.name.Contains("End Point"))
+        {
+            --Health;
+
+            //Destroy(collision.gameObject);
         }
 
     }
