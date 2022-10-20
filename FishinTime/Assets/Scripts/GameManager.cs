@@ -59,13 +59,7 @@ public class GameManager : MonoBehaviour
             //wait __ seconds 
             yield return new WaitForSeconds(2f);
 
-            this.Wait(15.0f, () =>
-            {
-                StopCoroutine(spawnFish);
-                StartCoroutine(spawnSharks);
-                Debug.Log("Bruh2");
-            } 
-        );
+            
 
 
     }
@@ -90,8 +84,14 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(5f);
 
 
+            this.Wait(15.0f, () =>
+            {
+                StopCoroutine(spawnFish);
+                StartCoroutine(spawnSharks);
+                Debug.Log("Bruh2");
+            }
+        );
 
-           
 
         }
     }
