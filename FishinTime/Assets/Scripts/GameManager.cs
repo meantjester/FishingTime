@@ -31,26 +31,13 @@ public class GameManager : MonoBehaviour
 
         spawnSharks = SpawnSharks();
 
-        /*  this.Wait(5.5f, () =>
-          {
-              StopCoroutine(SpawnFish());
-              Debug.Log("Bruh2");
-          });
 
-          this.Wait(10.5f, () =>
-          {
-              StartCoroutine(SpawnSharks());
-              Debug.Log("Bruh3");
-          });
-
-          this.Wait(20.5f, () =>
-          {
-              StopAllCoroutines();
-              Debug.Log("Bruh4");
-          });
-          */
-
-
+        this.Wait(30.0f, () =>
+        {
+            StopAllCoroutines();
+            StartCoroutine(spawnFish);
+            Debug.Log("Bruh");
+        });
     }
 
     IEnumerator SpawnFish()
@@ -62,7 +49,7 @@ public class GameManager : MonoBehaviour
         {
 
             Vector3 randomPos = new Vector3(Random.Range(10f, 10f), Random.Range(-2.0f, -8.0f));
-           
+
 
             //transfer enemy to 'EnemyContainer' gameobject.
             GameObject newEnemy = Instantiate(FishPrefab, randomPos, Quaternion.identity);
@@ -72,12 +59,12 @@ public class GameManager : MonoBehaviour
             //wait __ seconds 
             yield return new WaitForSeconds(2f);
 
-            this.Wait(5.0f, () =>
+            this.Wait(15.0f, () =>
             {
                 StopCoroutine(spawnFish);
-                gm.StartCoroutine("SpawnSharks");
-                Debug.Log("Bruh");
-            }
+                StartCoroutine(spawnSharks);
+                Debug.Log("Bruh2");
+            } 
         );
 
 
@@ -86,12 +73,15 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnSharks()
     {
+        int i = 0;
+
         //infinite loop
-        while (i <= 0)
+        while (i <= 5)
         {
 
             Vector3 randomPos = new Vector3(Random.Range(10f, 10f), Random.Range(-2.0f, -8.0f));
 
+            i++;
 
             //transfer enemy to 'EnemyContainer' gameobject.
             GameObject newEnemy = Instantiate(SharkPrefab, randomPos, Quaternion.identity);
@@ -99,12 +89,9 @@ public class GameManager : MonoBehaviour
             //wait __ seconds 
             yield return new WaitForSeconds(5f);
 
-            this.Wait(10.0f, () =>
-            {
-                StopCoroutine(spawnSharks);
-                gm.StartCoroutine(spawnFish);
-                Debug.Log("Bruh2");
-            });
+
+
+           
 
         }
     }
