@@ -20,7 +20,12 @@ public class PlayerController : MonoBehaviour
     private float timeDifference2;
     public float firerate = 0.5f;
     private float nextFire = 0.5f;
-    
+
+    public bool canspawnF;
+    public bool canspawnS;
+    public float spawnrateF = 3.5f;
+    public float spawnrateS = 5.5f;
+    //private float nextspawn = 0.5f;
 
     public float speed = 10;
     public int playerHealth = 10000000;
@@ -48,7 +53,7 @@ public class PlayerController : MonoBehaviour
         velocity.x = Input.GetAxisRaw("Horizontal") * speed;
         velocity.y = Input.GetAxisRaw("Vertical") * speed;
 
-        
+
 
         if (canShoot)
         {

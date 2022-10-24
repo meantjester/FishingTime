@@ -21,10 +21,16 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator spawnSharks;
 
+    public bool canspawnF;
+    public bool canspawnS;
+    public float spawnrateF = 3.5f;
+    public float spawnrateS = 5.5f;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        
         spawnFish = SpawnFish();
 
         StartCoroutine(spawnFish);
@@ -32,12 +38,7 @@ public class GameManager : MonoBehaviour
         spawnSharks = SpawnSharks();
 
 
-        this.Wait(30.0f, () =>
-        {
-            StopAllCoroutines();
-            StartCoroutine(spawnFish);
-            Debug.Log("Bruh");
-        });
+        
     }
 
     IEnumerator SpawnFish()
@@ -59,8 +60,14 @@ public class GameManager : MonoBehaviour
             //wait __ seconds 
             yield return new WaitForSeconds(2f);
 
-            
 
+            this.Wait(5.0f, () =>
+       {
+           StopCoroutine(spawnFish);
+           canspawnS = true;
+           StartCoroutine(spawnSharks);
+           Debug.Log("Bruh2");
+       });
 
     }
     }
@@ -84,13 +91,15 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(5f);
 
 
+
             this.Wait(15.0f, () =>
             {
-                StopCoroutine(spawnFish);
-                StartCoroutine(spawnSharks);
-                Debug.Log("Bruh2");
-            }
-        );
+                StopAllCoroutines();
+                StartCoroutine(spawnFish);
+                canspawnF = true;
+                Debug.Log("Bruh");
+            });
+
 
 
         }
@@ -100,7 +109,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (canspawnF)
+        {
+            canspawnS = false;
+            StopCoroutine(spawnSharks);
+        }
 
+        if (canspawnS)
+        {
+            canspawnF = false;
+            StopCoroutine(spawnFish);
+
+        }
     }
 
     public void startGame()
