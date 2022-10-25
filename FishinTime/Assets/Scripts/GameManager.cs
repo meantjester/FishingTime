@@ -36,8 +36,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(spawnFish);
 
         spawnSharks = SpawnSharks();
-
-
         
     }
 
@@ -48,10 +46,10 @@ public class GameManager : MonoBehaviour
         //infinite loop
         while (i <= 10)
         {
+            canspawnF = true;
 
             Vector3 randomPos = new Vector3(Random.Range(10f, 10f), Random.Range(-2.0f, -8.0f));
-
-
+            
             //transfer enemy to 'EnemyContainer' gameobject.
             GameObject newEnemy = Instantiate(FishPrefab, randomPos, Quaternion.identity);
 
@@ -60,16 +58,15 @@ public class GameManager : MonoBehaviour
             //wait __ seconds 
             yield return new WaitForSeconds(2f);
 
-
             this.Wait(5.0f, () =>
-       {
-           StopCoroutine(spawnFish);
-           canspawnS = true;
-           StartCoroutine(spawnSharks);
-           Debug.Log("Bruh2");
-       });
+            {
+                StopCoroutine(spawnFish);
+                canspawnS = true;
+                StartCoroutine(spawnSharks);
+                Debug.Log("Bruh2");
+            });
 
-    }
+        }
     }
 
     IEnumerator SpawnSharks()
@@ -79,9 +76,10 @@ public class GameManager : MonoBehaviour
         //infinite loop
         while (i <= 5)
         {
+            canspawnS = true;
 
             Vector3 randomPos = new Vector3(Random.Range(10f, 10f), Random.Range(-2.0f, -8.0f));
-
+            
             i++;
 
             //transfer enemy to 'EnemyContainer' gameobject.
@@ -90,17 +88,13 @@ public class GameManager : MonoBehaviour
             //wait __ seconds 
             yield return new WaitForSeconds(5f);
 
-
-
             this.Wait(15.0f, () =>
             {
-                StopAllCoroutines();
-                StartCoroutine(spawnFish);
+                StopCoroutine(spawnSharks);
                 canspawnF = true;
+                StartCoroutine(spawnFish);
                 Debug.Log("Bruh");
             });
-
-
 
         }
     }
