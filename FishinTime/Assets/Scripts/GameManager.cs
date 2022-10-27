@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject SharkPrefab;
     public GameObject FishPrefab;
     public GameObject enemyContainer;
 
@@ -13,9 +14,6 @@ public class GameManager : MonoBehaviour
     public float elapsedTime = 0.0f;
     
     public IEnumerator spawnFish;
-
-    public GameObject SharkPrefab;
-    
 
     public GameManager gm;
 

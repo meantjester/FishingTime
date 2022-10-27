@@ -85,6 +85,11 @@ public class enemyMovement : MonoBehaviour
             playerTarget = endPoints[rand.Next(0, 2)].transform;
         }
 
+        if (collision.gameObject.name.Contains("Fish"))
+        {
+            Destroy(collision.gameObject);
+        }
+
         if (collision.gameObject.name.Contains("wall"))
         {
             --Health;
@@ -111,7 +116,7 @@ public class enemyMovement : MonoBehaviour
     {
         if (collision.gameObject.name.Contains("Player"))
         {
-            movementSpeed = 40;
+            movementSpeed = 45;
         }
     }
 
@@ -119,6 +124,6 @@ public class enemyMovement : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.name.Contains("Player"))
-            movementSpeed = 28;
+            movementSpeed = 30;
     }
 }
