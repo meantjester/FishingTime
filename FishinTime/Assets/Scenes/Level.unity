@@ -174,10 +174,16 @@ MonoBehaviour:
   elapsedTime: 0
   SharkPrefab: {fileID: 1035326380}
   gm: {fileID: 65896076}
-  canspawnF: 0
+  canspawnF: 1
   canspawnS: 0
+  maxFish: 4
+  fishWaveSpawns: 4
+  maxShark: 3
+  sharkWaveSpawns: 3
   spawnrateF: 3.5
   spawnrateS: 5.5
+  fishCountdown: 0
+  sharkCountdown: 0
 --- !u!1 &180893204
 GameObject:
   m_ObjectHideFlags: 0
