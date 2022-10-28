@@ -136,6 +136,8 @@ public class PlayerController : MonoBehaviour
 
             Destroy(gameObject);
 
+            MainMenu.instance.AddPoint();
+
         }
     }
 }

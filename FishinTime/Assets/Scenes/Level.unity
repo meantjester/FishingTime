@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 65896075}
   - component: {fileID: 65896076}
   - component: {fileID: 65896077}
+  - component: {fileID: 65896078}
   m_Layer: 0
   m_Name: Spawn manager
   m_TagString: Untagged
@@ -199,6 +200,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 0
   score: 0
+--- !u!114 &65896078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65896074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff80a889a0bc0ec46bc6cb5aa1ee8a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreText: {fileID: 0}
 --- !u!1 &112046663
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1865434683}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &239665180
@@ -2690,8 +2704,9 @@ GameObject:
   - component: {fileID: 1865434684}
   - component: {fileID: 1865434686}
   - component: {fileID: 1865434685}
+  - component: {fileID: 1865434687}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: 'Score:'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2712,11 +2727,11 @@ RectTransform:
   m_Father: {fileID: 112046667}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 213, y: 240}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.80055773, y: 2.1363702}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &1865434685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2814,6 +2829,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865434683}
   m_CullTransparentMesh: 1
+--- !u!114 &1865434687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865434683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff80a889a0bc0ec46bc6cb5aa1ee8a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreText: {fileID: 0}
 --- !u!1 &1983823770
 GameObject:
   m_ObjectHideFlags: 0
