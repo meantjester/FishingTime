@@ -27,12 +27,12 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        ScoreText.text = score.ToString() + "Score:";
+        ScoreText.text = score.ToString() + "Score: ";
     }
 
     public void AddPoint()
     {
         score += 1;
-        ScoreText.text = score.ToString() + "Score:";
+        ScoreText.text = score.ToString() + "Score: ";
     }
 }

@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -122,6 +126,7 @@ public class PlayerController : MonoBehaviour
 
             wallet.money += 100;
             wallet.score += 1;
+            
 
             invincible = true;
 
