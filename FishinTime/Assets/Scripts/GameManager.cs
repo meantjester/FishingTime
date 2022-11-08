@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 
@@ -19,11 +23,14 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator spawnSharks;
 
+    public SpriteRenderer BottomImage;
+    public SpriteRenderer TopImage;
+
     public bool canspawnF;
     public bool canspawnS;
 
     public int maxFish = 4;
-    public int fishWaveSpawns = 4;
+    public int fishWaveSpawns = 50;
     public int maxShark = 3;
     public int sharkWaveSpawns = 3;
 
@@ -31,6 +38,8 @@ public class GameManager : MonoBehaviour
     public float spawnrateS = 5.5f;
     public float fishCountdown = 0;
     public float sharkCountdown = 0;
+
+    public GameObject[] FishArray;
 
 
 
@@ -47,7 +56,10 @@ public class GameManager : MonoBehaviour
     {
         if(canspawnF)
         {
-            if(fishCountdown >= spawnrateF)
+            TopImage.color = Color.white;
+            BottomImage.color = Color.white;
+
+            if (fishCountdown >= spawnrateF)
             {
                 if (fishWaveSpawns <= 0)
                 {
@@ -63,7 +75,7 @@ public class GameManager : MonoBehaviour
                 Vector3 randomPos = new Vector3(Random.Range(10f, 10f), Random.Range(-2.0f, -8.0f));
 
                 //transfer enemy to 'EnemyContainer' gameobject.
-                GameObject newEnemy = Instantiate(FishPrefab, randomPos, Quaternion.identity);
+                GameObject newEnemy = Instantiate(FishArray[Random.Range (0, FishArray.Length)], randomPos, Quaternion.identity);
                 fishCountdown = 0;
             }
 
@@ -73,6 +85,10 @@ public class GameManager : MonoBehaviour
 
         if (canspawnS)
         {
+            TopImage.color = Color.red;
+            BottomImage.color = Color.red;
+            Debug.Log ("Bruh");
+
             if (sharkCountdown >= spawnrateS)
             {
                 if (sharkWaveSpawns <= 0)

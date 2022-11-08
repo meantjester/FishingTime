@@ -116,7 +116,7 @@ public class enemyMovement : MonoBehaviour
     {
         if (collision.gameObject.name.Contains("Player"))
         {
-            movementSpeed = 45;
+            movementSpeed = 60;
         }
     }
 
@@ -124,6 +124,6 @@ public class enemyMovement : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.name.Contains("Player"))
-            movementSpeed = 30;
+            movementSpeed = 45;
     }
 }

@@ -133,8 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 65896075}
   - component: {fileID: 65896076}
-  - component: {fileID: 65896077}
-  - component: {fileID: 65896078}
   m_Layer: 0
   m_Name: Spawn manager
   m_TagString: Untagged
@@ -176,6 +174,8 @@ MonoBehaviour:
   secondsBetweenSpawn: 2.5
   elapsedTime: 0
   gm: {fileID: 65896076}
+  BottomImage: {fileID: 568213757}
+  TopImage: {fileID: 2018023967}
   canspawnF: 1
   canspawnS: 0
   maxFish: 10
@@ -186,33 +186,9 @@ MonoBehaviour:
   spawnrateS: 5.5
   fishCountdown: 0
   sharkCountdown: 0
---- !u!114 &65896077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65896074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94bad77b62ec31f4387d963fc3a9f109, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  money: 0
-  score: 0
---- !u!114 &65896078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65896074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff80a889a0bc0ec46bc6cb5aa1ee8a78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScoreText: {fileID: 0}
+  FishArray:
+  - {fileID: 1990731236}
+  - {fileID: 1245566241}
 --- !u!1 &112046663
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,16 +895,16 @@ RectTransform:
   m_GameObject: {fileID: 466051970}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.99116, y: 0.99116, z: 0.99116}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 112046667}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -227.39996, y: -32.99997}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 371.732, y: -52}
+  m_SizeDelta: {x: 371.732, y: 68.299}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &466051972
 MonoBehaviour:
@@ -942,7 +918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff80a889a0bc0ec46bc6cb5aa1ee8a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreText: {fileID: 0}
 --- !u!114 &466051973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,7 +938,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Money: '
+  m_text: 'Money: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8b42cd5b328c7794da004ab97c4208cd, type: 2}
   m_sharedMaterial: {fileID: 3620486002408901134, guid: 8b42cd5b328c7794da004ab97c4208cd, type: 2}
@@ -972,8 +947,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294770568
+  m_fontColor: {r: 0.5330188, g: 1, b: 0.9862835, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -990,8 +965,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1026,7 +1001,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 1.5455017, y: 29.55283, z: 0, w: 0}
+  m_margin: {x: 1.5455017, y: 29.55283, z: 0, w: -21.114502}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1385,7 +1360,7 @@ GameObject:
   - component: {fileID: 568213758}
   - component: {fileID: 568213757}
   m_Layer: 0
-  m_Name: Top Image
+  m_Name: Bottom Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1429,8 +1404,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -558960529
-  m_SortingLayer: 2
+  m_SortingLayerID: -256439045
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5a5017a5c6c4c3e4b94c353d1f5380fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1451,8 +1426,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568213756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1, y: -10.7, z: 0}
-  m_LocalScale: {x: 13.476289, y: 3.1567957, z: 7.415688}
+  m_LocalPosition: {x: -1.0069, y: -7.6253, z: 0}
+  m_LocalScale: {x: 13.532889, y: 6.9295, z: 7.415688}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1960,8 +1935,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -558960529
-  m_SortingLayer: 2
+  m_SortingLayerID: 1360432777
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -2102,6 +2077,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 0
   score: 0
+  ScoreText: {fileID: 1865434683}
+  MoneyText: {fileID: 466051970}
 --- !u!1 &1193528230
 GameObject:
   m_ObjectHideFlags: 0
@@ -2260,6 +2237,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1245566241 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3502771052550853552, guid: 333c378b63b816541b44b22e8e5c2778, type: 3}
+  m_PrefabInstance: {fileID: 4931032105393803683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1320475320
 GameObject:
   m_ObjectHideFlags: 0
@@ -2955,16 +2937,16 @@ RectTransform:
   m_GameObject: {fileID: 1865434683}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.99116, y: 0.99116, z: 0.99116}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 112046667}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -227.4, y: -4}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 371.732, y: 0}
+  m_SizeDelta: {x: 371.732, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1865434685
 MonoBehaviour:
@@ -2986,7 +2968,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: '
+  m_text: 'Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8b42cd5b328c7794da004ab97c4208cd, type: 2}
   m_sharedMaterial: {fileID: 3620486002408901134, guid: 8b42cd5b328c7794da004ab97c4208cd, type: 2}
@@ -2995,8 +2977,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294770568
+  m_fontColor: {r: 0.5330188, g: 1, b: 0.9862835, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3013,8 +2995,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3075,7 +3057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff80a889a0bc0ec46bc6cb5aa1ee8a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreText: {fileID: 0}
 --- !u!1 &1983823770
 GameObject:
   m_ObjectHideFlags: 0
@@ -3233,8 +3214,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -558960529
-  m_SortingLayer: 2
+  m_SortingLayerID: 1360432777
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -3292,7 +3273,7 @@ GameObject:
   - component: {fileID: 2018023968}
   - component: {fileID: 2018023967}
   m_Layer: 0
-  m_Name: Bottom Image
+  m_Name: Top Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3336,8 +3317,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -256439045
-  m_SortingLayer: 1
+  m_SortingLayerID: -1174020557
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2a8675c5f2f9d8d47bcc5f3649bddcba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3358,8 +3339,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018023966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.072, y: 0.6111, z: 0}
-  m_LocalScale: {x: 0.9500529, y: 0.73592, z: 0.9500529}
+  m_LocalPosition: {x: -1.072, y: 0.4856, z: 0}
+  m_LocalScale: {x: 0.9500529, y: 0.6795586, z: 0.9500529}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3532,6 +3513,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 286407908102680306, guid: baddd01b18356834ca4fa3fbc51b4cd8, type: 3}
+      propertyPath: RandomSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 286407908102680306, guid: baddd01b18356834ca4fa3fbc51b4cd8, type: 3}
+      propertyPath: MaximumSpeed
+      value: 6.5
+      objectReference: {fileID: 0}
     - target: {fileID: 286407908102680307, guid: baddd01b18356834ca4fa3fbc51b4cd8, type: 3}
       propertyPath: m_Simulated
       value: 1
@@ -3602,11 +3591,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 286407908102680318, guid: baddd01b18356834ca4fa3fbc51b4cd8, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 286407908102680318, guid: baddd01b18356834ca4fa3fbc51b4cd8, type: 3}
       propertyPath: m_SortingLayerID
-      value: -558960529
+      value: 1360432777
       objectReference: {fileID: 0}
     - target: {fileID: 286407908102680319, guid: baddd01b18356834ca4fa3fbc51b4cd8, type: 3}
       propertyPath: m_Name
@@ -3635,6 +3624,14 @@ PrefabInstance:
     - target: {fileID: 3502771052550853552, guid: 333c378b63b816541b44b22e8e5c2778, type: 3}
       propertyPath: m_Name
       value: Fish (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502771052550853553, guid: 333c378b63b816541b44b22e8e5c2778, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502771052550853553, guid: 333c378b63b816541b44b22e8e5c2778, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1360432777
       objectReference: {fileID: 0}
     - target: {fileID: 3502771052550853554, guid: 333c378b63b816541b44b22e8e5c2778, type: 3}
       propertyPath: m_RootOrder
@@ -3680,6 +3677,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3502771052550853565, guid: 333c378b63b816541b44b22e8e5c2778, type: 3}
+      propertyPath: RandomSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502771052550853565, guid: 333c378b63b816541b44b22e8e5c2778, type: 3}
+      propertyPath: MaximumSpeed
+      value: 9.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3707,11 +3712,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5252247957729798340, guid: 0aa00ad238dde5942b09744a5c92e148, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5252247957729798340, guid: 0aa00ad238dde5942b09744a5c92e148, type: 3}
       propertyPath: m_SortingLayerID
-      value: -558960529
+      value: 1360432777
       objectReference: {fileID: 0}
     - target: {fileID: 5252247957729798341, guid: 0aa00ad238dde5942b09744a5c92e148, type: 3}
       propertyPath: m_Name

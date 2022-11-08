@@ -44,9 +44,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: stuff
-    uniqueID: 4038528251
-    locked: 0
   - name: UI
     uniqueID: 3736006767
+    locked: 0
+  - name: Images2
+    uniqueID: 3120946739
+    locked: 0
+  - name: Images
+    uniqueID: 4038528251
+    locked: 0
+  - name: Players
+    uniqueID: 1360432777
     locked: 0

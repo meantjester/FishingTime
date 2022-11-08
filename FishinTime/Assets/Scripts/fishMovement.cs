@@ -12,6 +12,9 @@ public class fishMovement : MonoBehaviour
 
     public int Health = 1;
 
+    public float RandomSpeed;
+    public float MaximumSpeed;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +22,8 @@ public class fishMovement : MonoBehaviour
         localScale = transform.localScale;
         rb = GetComponent<Rigidbody2D>();
         dirX = -1f;
-        moveSpeed = 3f;
-
+        moveSpeed = Random.Range(RandomSpeed, MaximumSpeed);
+        
         Health = 1;
 
        /* this.Wait(13.5f, () =>
