@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     public bool canspawnF;
     public bool canspawnS;
 
+    public static bool gameIsPaused;
+
     public int maxFish = 4;
     public int fishWaveSpawns = 50;
     public int maxShark = 3;
@@ -56,8 +58,8 @@ public class GameManager : MonoBehaviour
     {
         if(canspawnF)
         {
-            TopImage.color = Color.white;
-            BottomImage.color = Color.white;
+            TopImage.color = new Color(0.1f, 0.1f, 0.1f, 0.1f);
+            BottomImage.color = new Color(0.1f, 0.1f, 0.1f, 0.1f);
 
             if (fishCountdown >= spawnrateF)
             {
@@ -85,8 +87,8 @@ public class GameManager : MonoBehaviour
 
         if (canspawnS)
         {
-            TopImage.color = Color.red;
-            BottomImage.color = Color.red;
+            TopImage.color = new Color(0.1f, 0.1f, 0.1f, 0f);
+            BottomImage.color = new Color(0.1f, 0.1f, 0.1f, 0f);
             Debug.Log ("Bruh");
 
             if (sharkCountdown >= spawnrateS)
@@ -112,7 +114,13 @@ public class GameManager : MonoBehaviour
                 sharkCountdown += Time.deltaTime;
         }
 
-      
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            PauseGame();
+            Debug.Log("Pause");
+        }
+
     }
 
     public void startGame()
@@ -120,4 +128,27 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void PauseGame ()
+    {
+        if (gameIsPaused)
+        {
+           Time.timeScale = 1f;
+           gameIsPaused = false;
+        }
+        else
+        {
+            Time.timeScale = 0;
+            gameIsPaused = true;
+        }
+    }
+
+    void ResumeGame ()
+    {
+        Time.timeScale = 1;
+        gameIsPaused = false;
+    }
+    
+
+
+    //https://www.youtube.com/watch?v=amjUNF_R_PY
 }

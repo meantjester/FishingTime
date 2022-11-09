@@ -176,6 +176,8 @@ MonoBehaviour:
   secondsBetweenSpawn: 2
   elapsedTime: 0
   gm: {fileID: 1161968017}
+  BottomImage: {fileID: 0}
+  TopImage: {fileID: 0}
   canspawnF: 0
   canspawnS: 0
   maxFish: 4
@@ -186,6 +188,7 @@ MonoBehaviour:
   spawnrateS: 5.5
   fishCountdown: 0
   sharkCountdown: 0
+  FishArray: []
 --- !u!114 &65896077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff80a889a0bc0ec46bc6cb5aa1ee8a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreText: {fileID: 0}
 --- !u!82 &65896078
 AudioSource:
   m_ObjectHideFlags: 0
@@ -209,7 +211,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 83048fb083aa55e478d7a39f15527c09, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 76103bf7af45b1943a5f8a2408e50bae, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
