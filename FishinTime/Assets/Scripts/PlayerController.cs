@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 {
     public MoneyHandler wallet;
 
+    public MainMenu Mainmenu;
+  
     public GameObject hook;
     public GameObject projectile;
     private Rigidbody2D myRB;
@@ -45,12 +47,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (playerHealth <= 0)
-        {
-            //transform.SetPositionAndRotation(new Vector2(), new Quaternion());
-            Destroy(gameObject);
-        }
 
         Vector2 velocity = myRB.velocity;
 
@@ -113,6 +109,11 @@ public class PlayerController : MonoBehaviour
             //playerHealth--;
 
             wallet.money -= 100;
+
+            if (wallet.money <= 1)
+            {
+                Mainmenu.DEATH();
+            }
         }
 
         else if (collision.gameObject.name.Contains("Fish"))

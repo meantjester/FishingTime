@@ -34,10 +34,10 @@ public class fishMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "fish")
+        /*if (collision.gameObject.tag == "fish")
         {
             dirX *= -1f;
-        }
+        }*/
 
         if (collision.gameObject.tag == "wall")
         {

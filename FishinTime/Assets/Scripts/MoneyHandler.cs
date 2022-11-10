@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class MoneyHandler : MonoBehaviour
 {
-    public float money = 0;
+    public float money = 100;
     public int score = 0;
 
     public GameObject ScoreText;
